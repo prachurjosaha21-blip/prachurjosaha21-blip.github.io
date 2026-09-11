@@ -3,171 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOUMO | Utility Hub</title>
+    <title>SOUMO | Home</title>
     <style>
         body {
             margin: 0;
-            padding: 20px 10px;
-            background-color: #050510;
-            color: #00e5ff;
+            padding: 0;
+            background-color: #ffffff;
+            color: #222222;
             font-family: Arial, sans-serif;
         }
-        h1 {
+        nav {
+            background-color: #007bff;
+            padding: 15px;
             text-align: center;
-            text-shadow: 0 0 10px #00e5ff;
-            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .wrapper {
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .card {
-            background-color: #0a0a20;
-            border: 2px solid #00e5ff;
-            border-radius: 15px;
-            padding: 20px;
-            width: 100%;
-            max-width: 380px;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .card h2 {
-            margin-top: 0;
-            border-bottom: 1px solid #00e5ff;
-            padding-bottom: 10px;
-        }
-        input[type="date"], input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #00e5ff;
-            background-color: #050510;
-            color: #fff;
-            outline: none;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #00e5ff;
-            color: #050510;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-        button:hover { background-color: #fff; }
-        .result {
-            margin-top: 15px;
-            font-weight: bold;
-            color: #fff;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-top: 15px;
-        }
-        li {
-            background: #050510;
-            border: 1px solid #00e5ff;
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            border-radius: 6px;
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            color: #fff;
-            cursor: pointer;
+            min-height: 75vh;
+            text-align: center;
+            padding: 20px;
         }
-        li.completed span {
-            text-decoration: line-through;
-            color: #888;
+        .box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 40px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            max-width: 400px;
+            width: 100%;
         }
-        .del-btn {
-            background: #ff0055;
-            color: #fff;
-            border: none;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
+        h1 { color: #007bff; margin-top: 0; }
+        p { color: #555555; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-    <h1>SOUMO's Web Services</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Age Calculator</a>
+        <a href="todo.html">To-Do List</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-    <div class="wrapper">
-        <!-- Age Calculator -->
-        <div class="card">
-            <h2>Age Calculator</h2>
-            <label for="dob">জন্মতারিখ নির্বাচন করুন:</label><br>
-            <input type="date" id="dob"><br>
-            <button onclick="calculateAge()">বয়স হিসাব করুন</button>
-            <div class="result" id="ageResult"></div>
-        </div>
-
-        <!-- To-Do List -->
-        <div class="card">
-            <h2>To-Do List</h2>
-            <input type="text" id="taskInput" placeholder="নতুন কাজ লিখুন...">
-            <button onclick="addTask()">যোগ করুন</button>
-            <ul id="taskList"></ul>
+    <div class="container">
+        <div class="box">
+            <h1>Welcome to SOUMO's Website</h1>
+            <p>এটি আমার নিজস্ব ইউটিলিটি প্ল্যাটফর্ম। ওপরের নেভিগেশন বার থেকে আপনার প্রয়োজনীয় সার্ভিসটি বেছে নিন।</p>
         </div>
     </div>
-
-    <script>
-        // Age Calculator Logic
-        function calculateAge() {
-            const dobInput = document.getElementById('dob').value;
-            if (!dobInput) {
-                document.getElementById('ageResult').innerText = "অনুগ্রহ করে তারিখ দিন!";
-                return;
-            }
-
-            const birthDate = new Date(dobInput);
-            const today = new Date();
-
-            let years = today.getFullYear() - birthDate.getFullYear();
-            let months = today.getMonth() - birthDate.getMonth();
-            let days = today.getDate() - birthDate.getDate();
-
-            if (days < 0) {
-                months--;
-                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-                days += lastMonth.getDate();
-            }
-
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-
-            document.getElementById('ageResult').innerHTML = 
-                `<span style="color:#00e5ff;">${years} বছর, ${months} মাস, ${days} দিন</span>`;
-        }
-
-        // To-Do List Logic
-        function addTask() {
-            const input = document.getElementById('taskInput');
-            const taskText = input.value.trim();
-            if (taskText === '') return;
-
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span onclick="this.parentElement.classList.toggle('completed')">${taskText}</span>
-                <button class="del-btn" onclick="this.parentElement.remove()">X</button>
-            `;
-
-            document.getElementById('taskList').appendChild(li);
-            input.value = '';
-        }
-    </script>
 
 </body>
 </html>
