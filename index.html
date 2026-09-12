@@ -1,53 +1,195 @@
-<!DOCTYPE  class="btn-calc" onclick="calculateGPA()">Calculate</button>
-        </div>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Multi-Tool Website</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; }
+        
+        /* Navigation Bar */
+        nav { background: #2c3e50; padding: 15px; text-align: center; sticky: top; }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; cursor: pointer; display: inline-block; padding: 5px 10px; }
+        nav a:hover, nav a.active { background: #3498db; border-radius: 5px; }
 
-        <div id="result"></div>
+        /* Page Content Sections */
+        .page-section { display: none; padding: 30px 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .page-section.active { display: block; }
+
+        /* Calculator Form Styling */
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .subject-row { display: flex; gap: 10px; margin-bottom: 10px; }
+        .subject-row input { flex: 2; }
+        .subject-row select { flex: 1; }
+        button { background: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+        button:hover { background: #219150; }
+        .btn-add { background: #2196F3; }
+        .btn-add:hover { background: #1e87db; }
+        .result-box { margin-top: 15px; font-weight: bold; text-align: center; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a class="nav-link active" onclick="showPage('home', this)">Home</a>
+        <a class="nav-link" onclick="showPage('about', this)">About</a>
+        <a class="nav-link" onclick="showPage('age-calc', this)">Age Calculator</a>
+        <a class="nav-link" onclick="showPage('gpa-calc', this)">GPA Calculator</a>
+        <a class="nav-link" onclick="showPage('contact', this)">Contact</a>
+    </nav>
+
+    <!-- 1. Home Page -->
+    <div id="home" class="page-section active">
+        <h2>Welcome to Our Website</h2>
+        <p style="margin-top: 10px; line-height: 1.6;">এটি একটি মাল্টি-ফাংশনাল ওয়েবসাইটের হোম পেজ। উপরের মেনু ব্যবহার করে বিভিন্ন পেজে যেতে পারবেন।</p>
     </div>
 
-<script>
-    function addSubject() {
-        const container = document.getElementById('subject-list');
-        const newRow = document.createElement('div');
-        newRow.className = 'subject-row';
-        newRow.innerHTML = `
-            <input type="text" placeholder="Subject Name" class="sub-name">
-            <select class="grade-point">
-                <option value="5.00">A+ (5.0)</option>
-                <option value="4.00">A (4.0)</option>
-                <option value="3.50">A- (3.5)</option>
-                <option value="3.00">B (3.0)</option>
-                <option value="2.00">C (2.0)</option>
-                <option value="1.00">D (1.0)</option>
-                <option value="0.00">F (0.0)</option>
-            </select>
-        `;
-        container.appendChild(newRow);
-    }
+    <!-- 2. About Page -->
+    <div id="about" class="page-section">
+        <h2>About Us</h2>
+        <p style="margin-top: 10px; line-height: 1.6;">আমাদের ওয়েবসাইটে স্বাগতম। এখানে আপনি সহজে বয়স হিসাব করা এবং জিপিএ ক্যালকুলেশন করার মতো দরকারী ডিজিটাল টুলস ব্যবহার করতে পারবেন।</p>
+    </div>
 
-    function calculateGPA() {
-        const grades = document.querySelectorAll('.grade-point');
-        let totalPoints = 0;
-        let isFailed = false;
+    <!-- 3. Age Calculator Page -->
+    <div id="age-calc" class="page-section">
+        <h2>Age Calculator</h2>
+        <div class="input-group" style="margin-top: 15px;">
+            <label>আপনার জন্মতারিখ দিন:</label>
+            <input type="date" id="birthdate">
+        </div>
+        <button onclick="calculateAge()">Calculate Age</button>
+        <div id="age-result" class="result-box"></div>
+    </div>
 
-        grades.forEach(gradeSelect => {
-            const point = parseFloat(gradeSelect.value);
-            if (point === 0) {
-                isFailed = true;
-            }
-            totalPoints += point;
-        });
+    <!-- 4. GPA Calculator Page -->
+    <div id="gpa-calc" class="page-section">
+        <h2>GPA Calculator</h2>
+        <div id="subject-list" style="margin-top: 15px;">
+            <div class="subject-row">
+                <input type="text" placeholder="Subject Name" class="sub-name">
+                <select class="grade-point">
+                    <option value="5.00">A+ (5.0)</option>
+                    <option value="4.00">A (4.0)</option>
+                    <option value="3.50">A- (3.5)</option>
+                    <option value="3.00">B (3.0)</option>
+                    <option value="2.00">C (2.0)</option>
+                    <option value="1.00">D (1.0)</option>
+                    <option value="0.00">F (0.0)</option>
+                </select>
+            </div>
+        </div>
+        <div style="display:flex; gap:10px;">
+            <button class="btn-add" onclick="addSubject()">+ Add Subject</button>
+            <button onclick="calculateGPA()">Calculate GPA</button>
+        </div>
+        <div id="gpa-result" class="result-box"></div>
+    </div>
 
-        const resultDiv = document.getElementById('result');
+    <!-- 5. Contact Page -->
+    <div id="contact" class="page-section">
+        <h2>Contact Us</h2>
+        <form onsubmit="event.preventDefault(); alert('Message Sent!');" style="margin-top: 15px;">
+            <div class="input-group">
+                <label>Name:</label>
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <label>Email:</label>
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="input-group">
+                <label>Message:</label>
+                <input type="text" placeholder="Your Message" required>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
 
-        if (isFailed) {
-            resultDiv.style.color = '#e74c3c';
-            resultDiv.innerHTML = "Result: Failed (F Grade in dynamic subjects)";
-        } else {
-            const gpa = (totalPoints / grades.length).toFixed(2);
-            resultDiv.style.color = '#27ae60';
-            resultDiv.innerHTML = `Your GPA: ${gpa}`;
+    <script>
+        // Page Navigation Logic
+        function showPage(pageId, element) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            document.getElementById(pageId).classList.add('active');
+            element.classList.add('active');
         }
-    }
-</script>
 
+        // Age Calculator Logic
+        function calculateAge() {
+            const birthdateInput = document.getElementById('birthdate').value;
+            if(!birthdateInput) {
+                alert('অনুগ্রহ করে জন্মতারিখ নির্বাচন করুন');
+                return;
+            }
+            const birthDate = new Date(birthdateInput);
+            const today = new Date();
+
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('age-result').style.color = '#27ae60';
+            document.getElementById('age-result').innerText = `আপনার বয়স: ${years} বছর, ${months} মাস, ${days} দিন`;
+        }
+
+        // GPA Calculator Logic
+        function addSubject() {
+            const container = document.getElementById('subject-list');
+            const newRow = document.createElement('div');
+            newRow.className = 'subject-row';
+            newRow.innerHTML = `
+                <input type="text" placeholder="Subject Name" class="sub-name">
+                <select class="grade-point">
+                    <option value="5.00">A+ (5.0)</option>
+                    <option value="4.00">A (4.0)</option>
+                    <option value="3.50">A- (3.5)</option>
+                    <option value="3.00">B (3.0)</option>
+                    <option value="2.00">C (2.0)</option>
+                    <option value="1.00">D (1.0)</option>
+                    <option value="0.00">F (0.0)</option>
+                </select>
+            `;
+            container.appendChild(newRow);
+        }
+
+        function calculateGPA() {
+            const grades = document.querySelectorAll('#gpa-calc .grade-point');
+            let totalPoints = 0;
+            let isFailed = false;
+
+            grades.forEach(gradeSelect => {
+                const point = parseFloat(gradeSelect.value);
+                if (point === 0) isFailed = true;
+                totalPoints += point;
+            });
+
+            const resultDiv = document.getElementById('gpa-result');
+            if (isFailed) {
+                resultDiv.style.color = '#e74c3c';
+                resultDiv.innerText = "Result: Failed (F Grade)";
+            } else {
+                const gpa = (totalPoints / grades.length).toFixed(2);
+                resultDiv.style.color = '#27ae60';
+                resultDiv.innerText = `Your GPA: ${gpa}`;
+            }
+        }
+    </script>
 </body>
+</html>
