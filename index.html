@@ -95,8 +95,10 @@
                 <label>Email:</label>
                 <input type="email" placeholder="Your Email" required>
             </div>
+            <div class="input-group">
                 <label>Message:</label>
                 <input type="text" placeholder="Your Message" required>
+            </div>
             <button type="submit">Send Message</button>
         </form>
     </div>
@@ -141,7 +143,7 @@
             document.getElementById('age-result').innerText = `আপনার বয়স: ${years} বছর, ${months} মাস, ${days} দিন`;
         }
 
-        // GPA Calculator Logic (Marks Based)
+        // GPA Calculator Logic (Exact Continuous Percentage Based)
         function addSubject() {
             const container = document.getElementById('subject-list');
             const newRow = document.createElement('div');
@@ -154,21 +156,11 @@
             container.appendChild(newRow);
         }
 
-        function getGradePoint(percentage) {
-            if (percentage >= 80) return 5.00;
-            if (percentage >= 70) return 4.00;
-            if (percentage >= 60) return 3.50;
-            if (percentage >= 50) return 3.00;
-            if (percentage >= 40) return 2.00;
-            if (percentage >= 33) return 1.00;
-            return 0.00;
-        }
-
         function calculateGPA() {
             const obtainedInputs = document.querySelectorAll('#gpa-calc .obtained-marks');
             const totalInputs = document.querySelectorAll('#gpa-calc .total-marks');
             
-            let totalPoints = 0;
+            let totalPercentageSum = 0;
             let isFailed = false;
             let validSubjects = 0;
 
@@ -178,10 +170,12 @@
 
                 if (!isNaN(obtained) && !isNaN(total) && total > 0) {
                     const percentage = (obtained / total) * 100;
-                    const point = getGradePoint(percentage);
-
-                    if (point === 0) isFailed = true;
-                    totalPoints += point;
+                    
+                    if (percentage < 33) {
+                        isFailed = true;
+                    }
+                    
+                    totalPercentageSum += percentage;
                     validSubjects++;
                 }
             }
@@ -194,9 +188,11 @@
                 resultDiv.style.color = '#e74c3c';
                 resultDiv.innerText = "Result: Failed (F Grade)";
             } else {
-                const gpa = (totalPoints / validSubjects).toFixed(2);
+                const avgPercentage = totalPercentageSum / validSubjects;
+                const gpa = ((avgPercentage / 100) * 5.00).toFixed(2);
+                
                 resultDiv.style.color = '#27ae60';
-                resultDiv.innerText = `Your GPA: ${gpa}`;
+                resultDiv.innerText = `Your Exact GPA: ${gpa}`;
             }
         }
     </script>
