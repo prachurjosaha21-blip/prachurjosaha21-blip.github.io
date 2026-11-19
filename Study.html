@@ -1,0 +1,71 @@
+Create a responsive, minimalist educational web landing page and resource directory UI that faithfully replicates the layout, typography, colors, and structure of the provided screenshot.
+
+### Visual & Color System
+- **Background Canvas:** Soft off-white / pale sage-tinted neutral (`#f7f9f6` or `#f8faf7`) with pure white (`#ffffff`) elevated cards and subtle light borders (`#e2e6e1`).
+- **Primary Dark Accent:** Deep forest/pine green (`#0d281f` / `#102a22`) used for the hero banner background and active filter pill button.
+- **Secondary Accent:** Bright lime/chartreuse green (`#9be53b` / `#a3e635`) for the brand icon badge.
+- **Typography:** Clean modern sans-serif (like Inter or Plus Jakarta Sans) for headings and body text, paired with a crisp editorial serif font (like Newsreader or Georgia) for major display headlines ("Good questions lead somewhere great." and "A little help for every subject.").
+
+### Section-by-Section Layout & Structure
+
+1. **Top Navigation Bar**
+   - Left: Lime green rounded-square icon badge containing a small notebook/grid mark, followed by lowercase bold brand text `fieldnotes`.
+   - Right: A small pill/rounded outline button containing a short label/status (e.g., `Student resource hub`).
+
+2. **Hero Section (Dark Forest Green Container)**
+   - Eyebrow uppercase label (tracked out, light mint/sage color): `THE STUDENT LIBRARY`
+   - Main serif display headline (large, crisp white): `Good questions lead somewhere great.`
+   - Subtitle (muted light sage/white): `Explore clear explanations, practical study guides, and trusted references — all in one place.`
+
+3. **Floating Search Card (Overlapping Hero Bottom Edge)**
+   - White card with rounded corners (`12px–16px`), soft shadow, and light border.
+   - Label above input: `What would you like to learn?`
+   - Search input field with placeholder text: `Search topics or skills`
+   - Full-width secondary/outlined button directly beneath the input: `Clear search`
+
+4. **Collection Header & Filter Pills**
+   - Small uppercase eyebrow text: `BROWSE THE COLLECTION`
+   - Section heading in serif font: `A little help for every subject.`
+   - Filter pill row (`All resources`, `Articles`, `Guides`, `Reference`, `Open textbooks`):
+     - `All resources` is active (solid dark green background `#0d281f` with white text).
+     - Remaining pills have light/white backgrounds with subtle borders and dark text.
+
+5. **Resource Cards Stack (Single-column vertical stack on narrow/mobile viewports, adaptable to clean grid on wider screens)**
+   - Each card is white with rounded corners (`12px`), subtle border, generous padding, a small colored category pill badge at the top, a bold title, a 2-line muted description, and an underlined/arrowed action link at the bottom.
+   - **Card 1:**
+     - Pill badge (soft lime/mint tint): `ARTICLE · STUDY SKILLS`
+     - Title: `How learning sticks`
+     - Description: `Understand the science behind effective practice and remembering more.`
+     - Link: `Read article ↗`
+   - **Card 2:**
+     - Pill badge (soft warm cream/tan tint): `GUIDE · WRITING`
+     - Title: `Write with confidence`
+     - Description: `Find clear guidance for planning, drafting, and polishing academic writing.`
+     - Link: `Explore guide ↗`
+   - **Card 3:**
+     - Pill badge (soft sky/ice blue tint): `REFERENCE · MATH`
+     - Title: `Math, step by step`
+     - Description: `Look up concepts and examples from algebra through calculus.`
+     - Link: `Open reference ↗`
+   - **Card 4:**
+     - Pill badge (soft mint/sage tint): `OPEN TEXTBOOKS · TEXTBOOKS`
+     - Title: `Free textbooks`
+     - Description: `Browse peer-reviewed textbooks with online and downloadable options.`
+     - Link: `Browse books ↗`
+   - **Card 5:**
+     - Pill badge (soft peach/cream tint): `GUIDE · RESEARCH`
+     - Title: `Research smarter`
+     - Description: `Learn how to find reliable sources and think critically about what you read.`
+     - Link: `Explore guide ↗`
+   - **Card 6:**
+     - Pill badge (soft pale blue/lavender tint): `OPEN COURSEWARE · COURSES`
+     - Title: `Keep exploring`
+     - Description: `Discover free courses, lectures, readings, and assignments across subjects.`
+     - Link: `Browse courses ↗`
+
+6. **Footer**
+   - Minimalist footer line at the bottom: `Stay curious. Keep going. The next discovery is yours.`
+
+### Interactive Behavior
+- Make the search input and `Clear search` button filter the visible resource cards dynamically by matching title, description, or category.
+- Make the filter pills filter the cards by resource type (`All resources`, `Articles`, `Guides`, `Reference`, `Open textbooks`), updating the active pill styling smoothly.
