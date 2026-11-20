@@ -1,293 +1,284 @@
-YPE html>
-<html lang="bn">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="google-site-verification" content="RNR2k8neYGiAjFbSC_BPdawnbS4VkakoulGJfS6sK7Q" />
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BQ71612K5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8BQ71612K5');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Multi-Tool Website - GPA & Age Calculator</title>
-    <meta name="description" content="সহজে ও নিখুঁতভাবে GPA এবং বয়স হিসাব করার জন্য অনলাইন টুল। SSC, HSC এবং বিশ্ববিদ্যালয় শিক্ষার্থীদের জন্য ফ্রি GPA & Age Calculator।">
-    <meta name="keywords" content="GPA Calculator, Age Calculator, জিপিএ ক্যালকুলেটর, বয়স ক্যালকুলেটর, BD GPA Calculator, Online Tools">
-    <meta name="author" content="a21-blip">
-    <meta name="robots" content="index, follow">
-
-    <!-- Social Media Sharing (Open Graph) Meta Tags -->
-    <meta property="og:title" content="Multi-Tool Website - GPA & Age Calculator">
-    <meta property="og:description" content="এক ক্লিকে নিখুঁত জিপিএ এবং বয়স বের করুন একদম সহজে।">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://a21-blip.github.io/">
-
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        body { background-color: #f4f7f6; color: #333; }
-        
-        /* Navigation Bar */
-        nav { background: #2c3e50; padding: 15px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 5px; font-weight: bold; cursor: pointer; display: inline-block; padding: 8px 12px; }
-        nav a:hover, nav a.active { background: #3498db; border-radius: 5px; }
-
-        /* Page Content Sections */
-        .page-section { display: none; padding: 30px 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .page-section.active { display: block; }
-
-        /* Form & Input Styling */
-        .input-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-        .subject-row { display: flex; gap: 8px; margin-bottom: 10px; }
-        .subject-row input.sub-name { flex: 2; }
-        .subject-row input.obtained-marks, .subject-row input.total-marks { flex: 1; }
-        
-        button { background: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
-        button:hover { background: #219150; }
-        .btn-add { background: #2196F3; }
-        .btn-add:hover { background: #1e87db; }
-        .result-box { margin-top: 15px; font-weight: bold; text-align: center; font-size: 18px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyHub — A little progress every day</title>
+<style>
+:root{--ink:#183842;--paper:#f8f6ef;--muted:#77796f;--gold:#f4c96c;--line:#deded7;--sage:#e9ece5;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+button,a{font:inherit}
+.topbar{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 max(5%,calc((100% - 1120px)/2));font-family:Arial,sans-serif}
+.brand{font-weight:700;font-size:16px;display:flex;gap:8px;align-items:center}
+.brand-mark{width:24px;height:24px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--ink)}
+nav{display:flex;gap:24px}
+nav a{font-size:12px;color:var(--ink);text-decoration:none}
+nav a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:auto;padding:0 5%}
+.hero{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);border-radius:28px;overflow:hidden;min-height:390px;color:white;margin:18px 0 64px}
+.hero-copy{padding:52px 44px;align-self:center}
+.eyebrow{font:10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#c9b98f}
+.hero h1{font-size:clamp(34px,5vw,60px);line-height:1.02;margin:18px 0}
+.hero p{font:14px/1.7 Arial,sans-serif;color:#d9e0df;max-width:440px}
+.pill{display:inline-block;background:var(--gold);color:var(--ink);border:0;border-radius:30px;padding:13px 22px;text-decoration:none;font:bold 12px Arial,sans-serif;margin-top:12px;cursor:pointer}
+.hero-photo{min-height:300px;background:linear-gradient(0deg,#18384222,#18384222),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85') center/cover}
+.section{margin:0 0 64px}
+.section h2{font-size:26px;margin:8px 0}
+.sub{font:13px/1.6 Arial,sans-serif;color:var(--muted);margin:8px 0 24px}
+.subjects{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.subject{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;min-height:180px;display:flex;flex-direction:column}
+.emoji{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:22px;margin-bottom:16px;background:#fff0d0}
+.subject:nth-child(2) .emoji{background:#e3f0e8}
+.subject:nth-child(3) .emoji{background:#ece8f5}
+.subject:nth-child(4) .emoji{background:#f7e8df}
+.subject h3{font-size:17px;margin:0 0 8px}
+.subject p{font:12px/1.6 Arial,sans-serif;color:var(--muted);margin:0 0 20px}
+.subject a{font:12px Arial,sans-serif;color:var(--ink);margin-top:auto}
+.shelf{background:#e9ebe4;padding:44px max(5%,calc((100% - 1120px)/2));margin:0 calc(-1 * max(5%,calc((100% - 1120px)/2))) 64px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 14px}
+.tab{border:1px solid #d1d5ce;border-radius:24px;padding:9px 18px;background:transparent;color:var(--ink);font:12px Arial,sans-serif;cursor:pointer}
+.tab.active{background:var(--ink);color:white;border-color:var(--ink)}
+.lesson{background:white;border-radius:22px;padding:26px;max-width:760px}
+.lesson h3{margin:0 0 12px;font-size:21px}
+.lesson p{font:13px/1.7 Arial,sans-serif;color:#656a66}
+.tip{background:#fff1d6;border-radius:12px;padding:14px 16px;font:12px/1.6 Arial,sans-serif;margin-top:18px;color:#604d28}
+.quiz{background:white;border:1px solid var(--line);border-radius:22px;padding:28px;max-width:760px}
+.quiz-top{font:10px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+.quiz h3{font-size:20px;margin:14px 0 20px}
+.answers{display:grid;gap:10px}
+.answer{border:1px solid #d9ddd8;border-radius:14px;padding:13px 16px;background:white;text-align:left;font:13px Arial,sans-serif;color:var(--ink);cursor:pointer}
+.answer:hover{background:#f5f5ef}
+.answer.correct{border-color:#5b946b;background:#eaf4eb}
+.answer.wrong{border-color:#c77b6e;background:#fbefed}
+.feedback{font:13px Arial,sans-serif;margin-top:14px;min-height:18px}
+.next{display:none;margin-top:16px}
+.footer{text-align:center;border-top:1px solid var(--line);padding:28px 12px;color:var(--muted);font:11px Arial,sans-serif}
+.footer strong{color:var(--ink)}
+@media(max-width:760px){
+.topbar{height:54px;padding:0 5%}
+nav{gap:12px}
+nav a{font-size:10px}
+.hero{display:flex;flex-direction:column;min-height:0;margin:10px 0 48px;border-radius:22px}
+.hero-copy{padding:28px 24px 24px}
+.hero h1{font-size:36px;margin:12px 0}
+.hero p{font-size:12px}
+.hero-photo{min-height:210px}
+.section{margin-bottom:48px}
+.section h2{font-size:22px}
+.subjects{grid-template-columns:1fr}
+.subject{min-height:145px;padding:18px}
+.emoji{margin-bottom:12px}
+.shelf{padding-top:34px;padding-bottom:34px;margin-bottom:48px}
+.lesson,.quiz{padding:20px}
+.quiz h3{font-size:18px}
+}
+@media(min-width:761px) and (max-width:1000px){
+.subjects{grid-template-columns:repeat(2,1fr)}
+}
+</style>
 </head>
 <body>
+<header class="topbar">
+<div class="brand"><span class="brand-mark">✦</span> StudyHub</div>
+<nav>
+<a href="#subjects">Subjects</a>
+<a href="#shelf">Study guides</a>
+<a href="#quiz">Quick quiz</a>
+</nav>
+</header>
 
-    <!-- Navigation Menu -->
-    <nav>
-        <a class="nav-link active" onclick="showPage('home', this)">Home</a>
-        <a class="nav-link" onclick="showPage('about', this)">About</a>
-        <a class="nav-link" onclick="showPage('age-calc', this)">Age Calculator</a>
-        <a class="nav-link" onclick="showPage('gpa-calc', this)">GPA Calculator</a>
-        <a class="nav-link" onclick="showPage('contact', this)">Contact</a>
-    </nav>
+<main class="wrap">
+<section class="hero">
+<div class="hero-copy">
+<div class="eyebrow">Your space to learn</div>
+<h1>Make room for curiosity.</h1>
+<p>Big ideas start with small steps. Explore school subjects, build your confidence, and enjoy learning along the way.</p>
+<a class="pill" href="#subjects">Explore subjects →</a>
+</div>
+<div class="hero-photo" role="img" aria-label="A calm study desk with a computer and notebook"></div>
+</section>
 
-    <!-- 1. Home Page -->
-    <div id="home" class="page-section active">
-        <h2>Welcome to Our Website</h2>
-        <p style="margin-top: 10px; line-height: 1.6;">এটি একটি মাল্টি-ফাংশনাল ওয়েবসাইটের হোম পেজ। উপরের মেনু ব্যবহার করে বিভিন্ন পেজে যেতে পারবেন।</p>
-    </div>
+<section class="section" id="subjects">
+<div class="eyebrow">Find your starting point</div>
+<h2>What are you learning today?</h2>
+<p class="sub">Pick a subject and discover one useful idea at a time.</p>
+<div class="subjects">
+<article class="subject">
+<div class="emoji">∑</div>
+<h3>Mathematics</h3>
+<p>Make sense of numbers, patterns, and problem-solving.</p>
+<a href="#shelf" data-subject="Mathematics">Explore topics →</a>
+</article>
+<article class="subject">
+<div class="emoji">⚗</div>
+<h3>Science</h3>
+<p>Ask questions about our world and how it works.</p>
+<a href="#shelf" data-subject="Science">Explore topics →</a>
+</article>
+<article class="subject">
+<div class="emoji">Aa</div>
+<h3>English</h3>
+<p>Grow your reading, writing, and communication skills.</p>
+<a href="#shelf" data-subject="English">Explore topics →</a>
+</article>
+<article class="subject">
+<div class="emoji">♜</div>
+<h3>History</h3>
+<p>Discover the people and events that shaped today.</p>
+<a href="#shelf" data-subject="History">Explore topics →</a>
+</article>
+</div>
+</section>
 
-    <!-- 2. About Page -->
-    <div id="about" class="page-section">
-        <h2>About Us</h2>
-        <p style="margin-top: 10px; line-height: 1.6;">আমাদের ওয়েবসাইটে স্বাগতম। এখানে আপনি সহজে বয়স হিসাব করা এবং নম্বর দিয়ে জিপিএ ক্যালকুলেশন করার মতো দরকারী ডিজিটাল টুলস ব্যবহার করতে পারবেন।</p>
-    </div>
+<section class="shelf" id="shelf">
+<div class="eyebrow">The study shelf</div>
+<h2>A little lesson goes a long way.</h2>
+<p class="sub">Choose a subject for a simple idea to take into your next study session.</p>
+<div class="tabs">
+<button class="tab active" data-tab="Mathematics">Mathematics</button>
+<button class="tab" data-tab="Science">Science</button>
+<button class="tab" data-tab="English">English</button>
+<button class="tab" data-tab="History">History</button>
+</div>
+<article class="lesson">
+<h3 id="lesson-title">Fractions are parts of a whole.</h3>
+<p id="lesson-text">A fraction has a numerator on top and a denominator below. The denominator tells you how many equal parts make the whole; the numerator tells you how many parts you have. For example, 3/4 means three of four equal parts.</p>
+<div class="tip" id="lesson-tip">Try it: Draw a circle, split it into four equal parts, and shade three parts to show 3/4.</div>
+</article>
+</section>
 
-    <!-- 3. Age Calculator Page -->
-    <div id="age-calc" class="page-section">
-        <h2>Age Calculator</h2>
-        <div class="input-group" style="margin-top: 15px;">
-            <label>আপনার জন্মতারিখ দিন:</label>
-            <input type="date" id="birthdate">
-        </div>
-        <button onclick="calculateAge()">Calculate Age</button>
-        <div id="age-result" class="result-box"></div>
-    </div>
+<section class="section" id="quiz">
+<div class="eyebrow">A quick brain boost</div>
+<h2>Ready to check what you know?</h2>
+<p class="sub">Three small questions. No pressure — just practice.</p>
+<div class="quiz">
+<div class="quiz-top" id="quiz-count">QUESTION 1 OF 3</div>
+<h3 id="question">What does the denominator in a fraction tell you?</h3>
+<div class="answers" id="answers">
+<button class="answer">How many parts you have</button>
+<button class="answer">How many equal parts make the whole</button>
+<button class="answer">The answer to a division problem</button>
+<button class="answer">The size of the numerator</button>
+</div>
+<div class="feedback" id="feedback" aria-live="polite"></div>
+<button class="pill next" id="next">Next question →</button>
+</div>
+</section>
+</main>
 
-    <!-- 4. GPA Calculator Page (Marks Based) -->
-    <div id="gpa-calc" class="page-section">
-        <h2>GPA Calculator</h2>
-        <div id="subject-list" style="margin-top: 15px;">
-            <div class="subject-row">
-                <input type="text" placeholder="Subject Name" class="sub-name">
-                <input type="number" placeholder="Marks" class="obtained-marks" min="0">
-                <input type="number" placeholder="Total" class="total-marks" value="100" min="1">
-            </div>
-        </div>
-        <div style="display:flex; gap:10px;">
-            <button class="btn-add" onclick="addSubject()">+ Add Subject</button>
-            <button onclick="calculateGPA()">Calculate GPA</button>
-        </div>
-        <div id="gpa-result" class="result-box"></div>
-    </div>
+<footer class="footer">StudyHub · <strong>A little progress every day.</strong></footer>
 
-    <!-- 5. Contact Page -->
-    <div id="contact" class="page-section">
-        <h2>Contact Us</h2>
-        <form onsubmit="event.preventDefault(); alert('Message Sent!');" style="margin-top: 15px;">
-            <div class="input-group">
-                <label>Name:</label>
-                <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="input-group">
-                <label>Email:</label>
-                <input type="email" placeholder="Your Email" required>
-            </div>
-            <div class="input-group">
-                <label>Message:</label>
-                <input type="text" placeholder="Your Message" required>
-            </div>
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
+<script>
+const lessons={
+Mathematics:{
+title:'Fractions are parts of a whole.',
+text:'A fraction has a numerator on top and a denominator below. The denominator tells you how many equal parts make the whole; the numerator tells you how many parts you have. For example, 3/4 means three of four equal parts.',
+tip:'Try it: Draw a circle, split it into four equal parts, and shade three parts to show 3/4.'
+},
+Science:{
+title:'Plants make their own food.',
+text:'Green plants use sunlight, water, and carbon dioxide to make glucose. This process is called photosynthesis. It also releases oxygen into the air.',
+tip:'Try it: Remember the three main ingredients — sunlight, water, and carbon dioxide.'
+},
+English:{
+title:'A sentence needs a complete idea.',
+text:'A complete sentence usually has a subject and a verb, and it expresses a finished thought. For example: “The students are reading.”',
+tip:'Try it: Find the subject and verb in this sentence: “Birds fly.”'
+},
+History:{
+title:'History helps us understand change.',
+text:'History is the study of people, places, and events from the past. It helps us understand how communities and ideas have changed over time.',
+tip:'Try it: Think of one event from the past that changed how people live today.'
+}
+};
 
-    <script>
-        // Page Navigation Logic
-        function showPage(pageId, element) {
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-            
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const d=lessons[btn.dataset.tab];
+document.getElementById('lesson-title').textContent=d.title;
+document.getElementById('lesson-text').textContent=d.text;
+document.getElementById('lesson-tip').textContent=d.tip;
+});
+});
 
-            document.getElementById(pageId).classList.add('active');
-            element.classList.add('active');
-        }
+document.querySelectorAll('[data-subject]').forEach(a=>{
+a.addEventListener('click',()=>{
+const tab=document.querySelector(`[data-tab="${a.dataset.subject}"]`);
+tab.click();
+});
+});
 
-        // Age Calculator Logic
-        function calculateAge() {
-            const birthdateInput = document.getElementById('birthdate').value;
-            if(!birthdateInput) {
-                alert('অনুগ্রহ করে জন্মতারিখ নির্বাচন করুন');
-                return;
-            }
-            const birthDate = new Date(birthdateInput);
-            const today = new Date();
+const questions=[
+{
+q:'What does the denominator in a fraction tell you?',
+a:['How many parts you have','How many equal parts make the whole','The answer to a division problem','The size of the numerator'],
+correct:1
+},
+{
+q:'Which part of a plant usually absorbs water from the soil?',
+a:['Flower','Leaf','Root','Fruit'],
+correct:2
+},
+{
+q:'Which sentence is written in the past tense?',
+a:['I walk to school.','I am walking to school.','I will walk to school.','I walked to school.'],
+correct:3
+}
+];
 
-            let years = today.getFullYear() - birthDate.getFullYear();
-            let months = today.getMonth() - birthDate.getMonth();
-            let days = today.getDate() - birthDate.getDate();
+let current=0,locked=false;
+const q=document.getElementById('question');
+const answers=document.getElementById('answers');
+const feedback=document.getElementById('feedback');
+const next=document.getElementById('next');
 
-            if (days < 0) {
-                months--;
-                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-            }
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
+function showQuestion(){
+locked=false;
+let item=questions[current];
+document.getElementById('quiz-count').textContent=`QUESTION ${current+1} OF ${questions.length}`;
+q.textContent=item.q;
+feedback.textContent='';
+next.style.display='none';
+answers.innerHTML='';
 
-            document.getElementById('age-result').style.color = '#27ae60';
-            document.getElementById('age-result').innerText = `আপনার বয়স: ${years} বছর, ${months} মাস, ${days} দিন`;
-        }
+item.a.forEach((answer,i)=>{
+let b=document.createElement('button');
+b.className='answer';
+b.textContent=answer;
 
-        // GPA Calculator Logic (Exact Continuous Percentage Based)
-        function addSubject() {
-            const container = document.getElementById('subject-list');
-            const newRow = document.createElement('div');
-            newRow.className = 'subject-row';
-            newRow.innerHTML = `
-                <input type="text" placeholder="Subject Name" class="sub-name">
-                <input type="number" placeholder="Marks" class="obtained-marks" min="0">
-                <input type="number" placeholder="Total" class="total-marks" value="100" min="1">
-            `;
-            container.appendChild(newRow);
-        }
+b.addEventListener('click',()=>{
+if(locked)return;
+locked=true;
 
-        function calculateGPA() {
-            const obtainedInputs = document.querySelectorAll('#gpa-calc .obtained-marks');
-            const totalInputs = document.querySelectorAll('#gpa-calc .total-marks');
-            
-            let totalPercentageSum = 0;
-            let isFailed = false;
-            let validSubjects = 0;
+[...answers.children].forEach((el,j)=>{
+if(j===item.correct)el.classList.add('correct');
+});
 
-            for (let i = 0; i < obtainedInputs.length; i++) {
-                const obtained = parseFloat(obtainedInputs[i].value);
-                const total = parseFloat(totalInputs[i].value);
+if(i===item.correct){
+feedback.textContent='Correct! Great work.';
+}else{
+b.classList.add('wrong');
+feedback.textContent='Not quite — the correct answer is highlighted.';
+}
 
-                if (!isNaN(obtained) && !isNaN(total) && total > 0) {
-                    const percentage = (obtained / total) * 100;
-                    
-                    if (percentage < 33) {
-                        isFailed = true;
-                    }
-                    
-                    totalPercentageSum += percentage;
-                    validSubjects++;
-                }
-            }
+next.textContent=current===questions.length-1?'Try again ↻':'Next question →';
+next.style.display='inline-block';
+});
 
-            const resultDiv = document.getElementById('gpa-result');
-            if (validSubjects === 0) {
-                resultDiv.style.color = '#e74c3c';
-                resultDiv.innerText = "অনুগ্রহ করে নম্বর দিন!";
-            } else if (isFailed) {
-                resultDiv.style.color = '#e74c3c';
-                resultDiv.innerText = "Result: Failed (F Grade)";
-            } else {
-                const avgPercentage = totalPercentageSum / validSubjects;
-                const gpa = ((avgPercentage / 100) * 5.00).toFixed(2);
-                
-                resultDiv.style.color = '#27ae60';
-                resultDiv.innerText = `Your Exact GPA: ${gpa}`;
-            }
-        }
-        Create a responsive, minimalist educational web landing page and resource directory UI that faithfully replicates the layout, typography, colors, and structure of the provided screenshot.
+answers.appendChild(b);
+});
+}
 
-### Visual & Color System
-- **Background Canvas:** Soft off-white / pale sage-tinted neutral (`#f7f9f6` or `#f8faf7`) with pure white (`#ffffff`) elevated cards and subtle light borders (`#e2e6e1`).
-- **Primary Dark Accent:** Deep forest/pine green (`#0d281f` / `#102a22`) used for the hero banner background and active filter pill button.
-- **Secondary Accent:** Bright lime/chartreuse green (`#9be53b` / `#a3e635`) for the brand icon badge.
-- **Typography:** Clean modern sans-serif (like Inter or Plus Jakarta Sans) for headings and body text, paired with a crisp editorial serif font (like Newsreader or Georgia) for major display headlines ("Good questions lead somewhere great." and "A little help for every subject.").
+next.addEventListener('click',()=>{
+current=current===questions.length-1?0:current+1;
+showQuestion();
+});
 
-### Section-by-Section Layout & Structure
-
-1. **Top Navigation Bar**
-   - Left: Lime green rounded-square icon badge containing a small notebook/grid mark, followed by lowercase bold brand text `fieldnotes`.
-   - Right: A small pill/rounded outline button containing a short label/status (e.g., `Student resource hub`).
-
-2. **Hero Section (Dark Forest Green Container)**
-   - Eyebrow uppercase label (tracked out, light mint/sage color): `THE STUDENT LIBRARY`
-   - Main serif display headline (large, crisp white): `Good questions lead somewhere great.`
-   - Subtitle (muted light sage/white): `Explore clear explanations, practical study guides, and trusted references — all in one place.`
-
-3. **Floating Search Card (Overlapping Hero Bottom Edge)**
-   - White card with rounded corners (`12px–16px`), soft shadow, and light border.
-   - Label above input: `What would you like to learn?`
-   - Search input field with placeholder text: `Search topics or skills`
-   - Full-width secondary/outlined button directly beneath the input: `Clear search`
-
-4. **Collection Header & Filter Pills**
-   - Small uppercase eyebrow text: `BROWSE THE COLLECTION`
-   - Section heading in serif font: `A little help for every subject.`
-   - Filter pill row (`All resources`, `Articles`, `Guides`, `Reference`, `Open textbooks`):
-     - `All resources` is active (solid dark green background `#0d281f` with white text).
-     - Remaining pills have light/white backgrounds with subtle borders and dark text.
-
-5. **Resource Cards Stack (Single-column vertical stack on narrow/mobile viewports, adaptable to clean grid on wider screens)**
-   - Each card is white with rounded corners (`12px`), subtle border, generous padding, a small colored category pill badge at the top, a bold title, a 2-line muted description, and an underlined/arrowed action link at the bottom.
-   - **Card 1:**
-     - Pill badge (soft lime/mint tint): `ARTICLE · STUDY SKILLS`
-     - Title: `How learning sticks`
-     - Description: `Understand the science behind effective practice and remembering more.`
-     - Link: `Read article ↗`
-   - **Card 2:**
-     - Pill badge (soft warm cream/tan tint): `GUIDE · WRITING`
-     - Title: `Write with confidence`
-     - Description: `Find clear guidance for planning, drafting, and polishing academic writing.`
-     - Link: `Explore guide ↗`
-   - **Card 3:**
-     - Pill badge (soft sky/ice blue tint): `REFERENCE · MATH`
-     - Title: `Math, step by step`
-     - Description: `Look up concepts and examples from algebra through calculus.`
-     - Link: `Open reference ↗`
-   - **Card 4:**
-     - Pill badge (soft mint/sage tint): `OPEN TEXTBOOKS · TEXTBOOKS`
-     - Title: `Free textbooks`
-     - Description: `Browse peer-reviewed textbooks with online and downloadable options.`
-     - Link: `Browse books ↗`
-   - **Card 5:**
-     - Pill badge (soft peach/cream tint): `GUIDE · RESEARCH`
-     - Title: `Research smarter`
-     - Description: `Learn how to find reliable sources and think critically about what you read.`
-     - Link: `Explore guide ↗`
-   - **Card 6:**
-     - Pill badge (soft pale blue/lavender tint): `OPEN COURSEWARE · COURSES`
-     - Title: `Keep exploring`
-     - Description: `Discover free courses, lectures, readings, and assignments across subjects.`
-     - Link: `Browse courses ↗`
-
-6. **Footer**
-   - Minimalist footer line at the bottom: `Stay curious. Keep going. The next discovery is yours.`
-
-### Interactive Behavior
-- Make the search input and `Clear search` button filter the visible resource cards dynamically by matching title, description, or category.
-- Make the filter pills filter the cards by resource type (`All resources`, `Articles`, `Guides`, `Reference`, `Open textbooks`), updating the active pill styling smoothly.
-
-    </script>
+showQuestion();
+</script>
+</body>
+</html>
